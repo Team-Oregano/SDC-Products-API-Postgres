@@ -1,13 +1,13 @@
-# Project Name
+# Hack Reactor - SDC - Team Oregano - Products API
 
-> Project description
+> API microservice for the Product Overview section of Hack Reactor's Front-end Capstone
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Team-Oregano/Questions-Answers
+  - https://github.com/Team-Oregano/Reviews-Ratings
+  - https://github.com/AlpineRockies/front-end-capstone
+
 
 ## Table of Contents
 
@@ -36,4 +36,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
