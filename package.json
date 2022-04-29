@@ -9,8 +9,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "server-dev": "NODE_ENV=development npx nodemon --trace-sync-io server/server.js",
-    "prod": "NODE_ENV=production npx nodemon server/server.js",
+    "server-dev": "NODE_ENV=development npx nodemon --trace-sync-io server.js",
+    "prod": "NODE_ENV=production npx nodemon server.js",
     "test": "jest --watchAll --forceExit --detectOpenHandles"
   },
   "repository": {
@@ -26,7 +26,7 @@
     "helmet": "^5.0.2",
     "k6": "^0.0.0",
     "morgan": "^1.10.0",
-    "node-darwin-arm64": "^17.8.0",
+    "node": "^17.7.2",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3"
   },
