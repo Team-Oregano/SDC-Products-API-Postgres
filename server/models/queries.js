@@ -1,31 +1,31 @@
 
 const stylesQuery = `SELECT (SELECT Json_agg(styles_list)
-  FROM   (SELECT p.styles.id
+  FROM   (SELECT styles.id
                  AS
                          style_id,
-                 p.styles.NAME,
-                 p.styles.original_price,
-                 p.styles.sale_price,
-                 p.styles.default
+                 styles.NAME,
+                 styles.original_price,
+                 styles.sale_price,
+                 styles.default
                  AS
                          "default?",
                  (SELECT Json_agg(photos_list)
                   FROM   (SELECT thumbnail_url,
                                  url
-                          FROM   p.photos
-                          WHERE  p.photos.style_id = p.styles.id) AS
+                          FROM   photos
+                          WHERE  photos.style_id = styles.id) AS
                          photos_list)
                  AS
                          photos,
-                 (SELECT Json_object_agg(p.skus.id,
+                 (SELECT Json_object_agg(skus.id,
                          Json_build_object('quantity',
-                         p.skus.quantity, 'size'
-                                 , p.skus.size)) AS
+                         skus.quantity, 'size'
+                                 , skus.size)) AS
                          skus
-                  FROM   p.skus
-                  WHERE  p.skus.style_id = p.styles.id)
+                  FROM   skus
+                  WHERE  skus.style_id = styles.id)
                  AS skus
-          FROM   p.styles
+          FROM   styles
           WHERE  product_id = $1) AS styles_list) AS results`;
 
 const featuresQuery =
@@ -38,9 +38,9 @@ p.default_price,
 (SELECT Json_agg(f)
 FROM   (SELECT feature,
                 value
-         FROM   p.features
-         WHERE  product_id = 1) AS f) AS features
-FROM   p.products p
+         FROM   features
+         WHERE  product_id = $1) AS f) AS features
+FROM   products p
 WHERE  id = $1`;
 
 module.exports = {
