@@ -10,7 +10,6 @@ require('dotenv').config();
 
 app.use(compression());
 app.use(morgan('dev'));
-app.use(helmet({}));
 app.use(cors());
 app.use('/products', router);
 

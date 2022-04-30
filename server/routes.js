@@ -11,6 +11,7 @@ router.get('/:product_id', controller.features.get);
 router.get('/:product_id/related', controller.related.get);
 
 router.get('/loaderio-:token', (req, res) => {
+  console.log('here');
   res.status(200).send('loaderio-' + req.params.token);
 });
 
