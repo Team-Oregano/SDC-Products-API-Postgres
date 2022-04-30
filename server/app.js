@@ -5,6 +5,9 @@ const router = require('./routes');
 const cors = require('cors');
 const helmet = require('helmet');
 const app = express();
+const redis = require('redis');
+
+const client = redis.createClient();
 
 require('dotenv').config();
 
@@ -13,4 +16,7 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use('/products', router);
 
-module.exports = app;
+module.exports = {
+  app: app,
+  client: client
+};
